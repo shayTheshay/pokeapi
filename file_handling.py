@@ -11,10 +11,10 @@ def create_json_file():
         json.dump({}, f)
 
 def pokemon_by_id_in_json(pokemon_id, data):
-
-    exist = False # Change it to actual call from json file.
-
-    return exist
+    try:
+        return data[str(pokemon_id)] 
+    except KeyError:
+        return False
     
     
 def extract_poke_data_json(pokemon_id):
@@ -24,13 +24,8 @@ def extract_poke_data_json(pokemon_id):
     with open(file_json_name, 'r') as f:
         data = json.load(f)
     
-    exist = pokemon_by_id_in_json(pokemon_id, data)
-    if exist == False:
-        return False
-    
-    pokemon = True
-    
-    return pokemon
+    pokemon_exist = pokemon_by_id_in_json(pokemon_id, data)
+    return pokemon_exist
 
 
 def insert_pokemon_to_json(pokemon_data): #insert the id name moves and abilities
@@ -38,11 +33,8 @@ def insert_pokemon_to_json(pokemon_data): #insert the id name moves and abilitie
         data = json.load(f) 
 
     pokemon_id = str(pokemon_data['id'])
-
     name = pokemon_data['name']
-
     types = pokemon_data['types']
-
     abilities = pokemon_data['abilities']
 
     new_pokemon = {
