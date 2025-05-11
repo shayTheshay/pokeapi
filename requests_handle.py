@@ -7,7 +7,6 @@ def handle_response(url):
 
         ## Check status code category
         if 200 <= response.status_code < 300:
-            print(f"Success! Status code: {response.status_code}")
             return response
         elif 300 <= response.status_code < 400:
             print(f"Redirection! Status code: {response.status_code}")
@@ -25,13 +24,7 @@ def handle_response(url):
         print(f"Request failed: {e}")
         return None
 
-## Test with different status codes
-print("Testing 200 OK:")
-handle_response("https://httpbin.org/status/200")
 
-print("\nTesting 404 Not Found:")
-handle_response("https://httpbin.org/status/404")
-
-print("\nTesting 500 Internal Server Error:")
-handle_response("https://httpbin.org/status/500")
-
+def json_data(response):
+    data = response.json()
+    return data
