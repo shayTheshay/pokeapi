@@ -1,7 +1,7 @@
 import os.path
 import json
 from constants import file_json_name
-from requests_handle import json_data
+from convert_file import convert_to_local
 
 def check_file_exists():
     return os.path.isfile(file_json_name)
@@ -33,7 +33,7 @@ def insert_pokemon_to_json(pokemon_data): #insert the id name moves and abilitie
     with open(file_json_name, 'r') as f:
         data = json.load(f) 
 
-    pokemon_id = str(change_id_according_to_database(pokemon_data['id']))
+    pokemon_id = str(convert_to_local(pokemon_data['id']))
     name = pokemon_data['name']
     types = pokemon_data['types']
     abilities = pokemon_data['abilities']
@@ -52,11 +52,6 @@ def insert_pokemon_to_json(pokemon_data): #insert the id name moves and abilitie
 
     return data[pokemon_id]
 
-
-def change_id_according_to_database(pokemon_id):###############################CHANGE HERE ACCORDINGLY
-    if pokemon_id > 1025:
-        pokemon_id = pokemon_id + 1025 - 10000
-    return pokemon_id
 
 
 
