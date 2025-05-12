@@ -19,6 +19,7 @@ A command-line Python project that lets you draw random Pokémon cards using dat
 
 ## 🗂️ Project Structure
 
+````bash
 .
 ├── main.py # Main entry point for the game loop
 ├── file_handling.py # Manages reading/writing to JSON and local cache
@@ -47,10 +48,8 @@ A command-line Python project that lets you draw random Pokémon cards using dat
 ## 🔧 Requirements
 
 - Python 3.7 or higher
-- `requests` library  
+- `requests` library
   Install with:
   ```bash
   pip install requests
-  ```
-
-## cola
+````
