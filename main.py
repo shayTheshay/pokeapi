@@ -1,6 +1,6 @@
 from file_handling import extract_poke_data_json
 from api_calling import get_pokemon_data
-from user_print import present_pokemon_data, ask_user_draw_pokemon
+from user_print import present_pokemon_data, ask_user_draw_pokemon, farewell_greeting_to_user
 from user_input import user_answer
 from pokemon_random import choose_random_num
 
@@ -8,7 +8,7 @@ def main():
     ask_user_draw_pokemon()
     answer = str(user_answer())
     while answer == "yes":
-        random_pokemon_id = choose_random_num() #until here everyting is okay
+        random_pokemon_id = choose_random_num() 
         pokemon = extract_poke_data_json(random_pokemon_id)
         if pokemon != False:
             present_pokemon_data(pokemon)
@@ -23,6 +23,8 @@ def main():
                 print("You can try again with the next pokemon calling")
         ask_user_draw_pokemon()
         answer = user_answer()
+
+    farewell_greeting_to_user()
 
 if __name__ == "__main__":
     main()

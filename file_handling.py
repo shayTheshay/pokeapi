@@ -24,10 +24,7 @@ def extract_poke_data_json(pokemon_id): #check concern of separation
     with open(file_json_name, 'r') as f:
         data = json.load(f)
     
-    pokemon_exist = pokemon_by_id_in_json(pokemon_id, data)
-    print("This is the pokemon exists place")
-    print(pokemon_exist)
-    
+    pokemon_exist = pokemon_by_id_in_json(pokemon_id, data)    
     return pokemon_exist
 
 
@@ -60,9 +57,8 @@ def change_id_according_to_database(pokemon_id):###############################C
     if pokemon_id > 1025:
         pokemon_id = pokemon_id + 1025 - 10000
     return pokemon_id
-def check_id_limit_json(pokemon_site_response):
-    pokemon_data = json_data(pokemon_site_response)
-    print(pokemon_data)
+
+
 
 
 

@@ -14,7 +14,4 @@ id_change_convertion = 1025
 
 id_change_convertion_range = 10000
 
-# Temporary const
-
-num_pokemon_id = 1302
 

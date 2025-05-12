@@ -1,13 +1,13 @@
 
 
+def farewell_greeting_to_user():
+    print("Thank you for choosing to look at some pokemon with us! have a pleasant day")
 
 def ask_user_draw_pokemon():
     print("Would you like to draw a pokemon card?")
 
 
 def present_pokemon_data(pokemon):
-    print("This is the pokemon")
-    print(pokemon)
     print(f"Pokémon ID: {pokemon['id']}")
     print(f"Name: {pokemon['name'].capitalize()}")
 
