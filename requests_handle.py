@@ -11,15 +11,13 @@ def handle_response(url):
         elif 300 <= response.status_code < 400:
             print(f"Redirection! Status code: {response.status_code}")
             ## For redirection, you might want to follow the redirect
-            return response
         elif 400 <= response.status_code < 500:
             print(f"Client error! Status code: {response.status_code}")
             ## Handle client errors
-            return response
         elif 500 <= response.status_code < 600:
             print(f"Server error! Status code: {response.status_code}")
             ## Handle server errors
-            return response
+        return response
     except requests.exceptions.RequestException as e:
         print(f"Request failed: {e}")
         return None
