@@ -6,6 +6,8 @@ def ask_user_draw_pokemon():
 
 
 def present_pokemon_data(pokemon):
+    print("This is the pokemon")
+    print(pokemon)
     print(f"Pokémon ID: {pokemon['id']}")
     print(f"Name: {pokemon['name'].capitalize()}")
 

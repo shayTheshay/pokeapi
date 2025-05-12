@@ -6,9 +6,15 @@ limit_url = "?limit=100000"
 
 file_json_name = "pokemon_data.json"
 
+min_id = 1
+
+maximum_id = 1302
+
+id_change_convertion = 1025
+
+id_change_convertion_range = 10000
+
 # Temporary const
 
-num_pokemon_id = 5
+num_pokemon_id = 1302
 
-minimum_id_range = 0
-maximum_id_range = 1300
