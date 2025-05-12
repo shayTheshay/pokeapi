@@ -26,3 +26,12 @@ def handle_response(url):
 def json_data(response):
     data = response.json()
     return data
+
+def pokemon_value_None_False(pokemon_data):
+    if pokemon_data is None:
+        print("There was a problem with the calling")
+    elif pokemon_data is False:
+        print("You can try again with the next pokemon calling")
+    else:
+        print("Value is not None or False, Check pokemon value from api")
+    return pokemon_data

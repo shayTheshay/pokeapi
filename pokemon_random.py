@@ -6,4 +6,3 @@ def choose_random_num():
     return random.randint(min_id, maximum_id)
 
 
-
