@@ -25,7 +25,7 @@ source venv/bin/activate
 
 # 7. Install Python dependencies
 pip install --upgrade pip
-pip install -r requirements.txt || echo "⚠️ requirements.txt not found, continuing..."
+pip install -r requirements.txt || echo "requirements.txt not found, continuing..."
 pip install python-dotenv
 
 # 8. Run the Pokémon app on boot (non-interactive background mode)
@@ -34,4 +34,4 @@ nohup python3 core/run_game.py > game_output.log 2>&1 &
 # 9. Automatically start game when SSH connects (interactive session)
 echo 'if [[ $- == *i* ]]; then cd /home/ec2-user/pokeapi && source venv/bin/activate && python3 core/run_game.py; fi' >> /home/ec2-user/.bash_profile
 
-echo "✅ EC2 setup complete. Pokémon game will run now and on each SSH login."
+echo "EC2 setup complete. Pokémon game will run now and on each SSH login."
