@@ -26,6 +26,7 @@ source venv/bin/activate
 # 7. Install Python dependencies
 pip install --upgrade pip
 pip install -r requirements.txt || echo "requirements.txt not found, continuing..."
+pip install requests
 pip install python-dotenv
 
 # 8. Run the Pokémon app on boot (non-interactive background mode)
