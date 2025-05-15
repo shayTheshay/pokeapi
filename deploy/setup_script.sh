@@ -15,10 +15,10 @@ cat game_output.log
 # 4. Clone the project (replace this with your real repo if needed)
 echo "Cloning repo..."
 git clone https://github.com/shayTheshay/pokeapi
-cd pokemon_api
+cd pokeapi
 
 # 5. Fix ownership for EC2 user
-sudo chown -R ec2-user:ec2-user /home/ec2-user/pokemon_api
+sudo chown -R ec2-user:ec2-user /home/ec2-user/pokeapi
 
 # 6. Create and activate virtual environment
 python3 -m venv venv
