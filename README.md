@@ -56,6 +56,7 @@ The game runs locally **or** on a fully automated **AWS EC2 instance**.
   INSTANCE_TYPE = [An instance type like "t3.micro"]
   KEY_PAIR_NAME = [You can use the default "vockey" or anything else you created]
   SECURITY_GROUP_NAME = [You should name it ]
+  POKEMON_EC2_NAME = [ 'pokeapi-server' or any unique name]
   ```
   
 

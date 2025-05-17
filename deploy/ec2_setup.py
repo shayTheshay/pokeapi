@@ -6,9 +6,21 @@ from .security_group_setup import get_security_group_id
 
 load_dotenv()
 
-def get_instance():
-    print("getting the instance of ec2, available")
-    
+def use_instance():
+    ec2 = boto3.resource('ec2', region_name=os.getenv("REGION_NAME"))
+
+    filters = [
+        {'Name': 'tag:Name', 'Values': [os.getenv("POKEMON_EC2_NAME")]},
+        {'Name': 'instance-state-name', 'Values': ['pending', 'running', 'stopped']}
+    ]
+
+    instances = list(ec2.instances.filter(Filters=filters))
+
+    for instance in instances:
+        if instance.name == os.getenv("POKEMON_EC2_NAME"):
+            return instance
+
+    create_instance()
 
 def create_instance():
 
@@ -26,7 +38,7 @@ def create_instance():
         UserData=open('deploy/setup_script.sh').read(),   # We'll define this below
         TagSpecifications=[{
             'ResourceType': 'instance',
-            'Tags': [{'Key': 'Name', 'Value': 'pokeapi-server'}]
+            'Tags': [{'Key': 'Name', 'Value': os.getenv("POKEMON_EC2_NAME")}]
         }]
     )[0]
     print("Launched:", instance.id)
