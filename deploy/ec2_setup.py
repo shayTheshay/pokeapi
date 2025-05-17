@@ -6,6 +6,10 @@ from .security_group_setup import get_security_group_id
 
 load_dotenv()
 
+def get_instance():
+    print("getting the instance of ec2, available")
+    
+
 def create_instance():
 
     sg_id = get_security_group_id()
