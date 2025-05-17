@@ -17,7 +17,13 @@ def use_instance():
     instances = list(ec2.instances.filter(Filters=filters))
 
     for instance in instances:
-        if instance.name == os.getenv("POKEMON_EC2_NAME"):
+        name_tag = next((tag['Value'] for tag in instance.tags if tag['Key'] == 'Name'), None)
+        if name_tag == os.getenv("POKEMON_EC2_NAME"):            
+            if instance.state['Name'] == 'stopped':
+                instance.start()
+                instance.wait_until_running()
+                instance.reload()
+
             return instance
 
     create_instance()
