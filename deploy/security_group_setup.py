@@ -1,4 +1,8 @@
 import boto3
+import os
+from dotenv import load_dotenv 
+load_dotenv()
+
 
 def create_security_group():
     ec2 = boto3.client('ec2')
@@ -9,7 +13,7 @@ def create_security_group():
 
     # Create the security group
     sg_response = ec2.create_security_group(
-        GroupName='pokeapi-sg',
+        GroupName=os.getenv("SECURITY_GROUP_NAME"),
         Description='Allow SSH and app access',
         VpcId=vpc_id
     )
