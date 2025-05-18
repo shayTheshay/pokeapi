@@ -7,31 +7,31 @@ def handle_response(url):
 
         ## Check status code category
         if 200 <= response.status_code < 300:
-            print(f"Success! Status code: {response.status_code}")
             return response
         elif 300 <= response.status_code < 400:
             print(f"Redirection! Status code: {response.status_code}")
             ## For redirection, you might want to follow the redirect
-            return response
         elif 400 <= response.status_code < 500:
             print(f"Client error! Status code: {response.status_code}")
             ## Handle client errors
-            return response
         elif 500 <= response.status_code < 600:
             print(f"Server error! Status code: {response.status_code}")
             ## Handle server errors
-            return response
+        return response
     except requests.exceptions.RequestException as e:
         print(f"Request failed: {e}")
         return None
 
-## Test with different status codes
-print("Testing 200 OK:")
-handle_response("https://httpbin.org/status/200")
 
-print("\nTesting 404 Not Found:")
-handle_response("https://httpbin.org/status/404")
+def json_data(response):
+    data = response.json()
+    return data
 
-print("\nTesting 500 Internal Server Error:")
-handle_response("https://httpbin.org/status/500")
-
+def pokemon_value_None_False(pokemon_data):
+    if pokemon_data is None:
+        print("There was a problem with the calling")
+    elif pokemon_data is False:
+        print("You can try again with the next pokemon calling")
+    else:
+        print("Value is not None or False, Check pokemon value from api")
+    return pokemon_data
